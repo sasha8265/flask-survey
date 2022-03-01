@@ -1,9 +1,24 @@
 {% extends 'base.html' %}
 
-{% block title %}Survey Questions{% endblock %}
+{% block title %}{{title}}{% endblock %}
 
 {% block content %}
 
+<h2 class="display-4">{{question.question}}</h2>
+
+<form action="/answer" method="POST">
+    
+    {% for choice in question.choices %}
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="answer" value="{{choice}}" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">{{choice}}</label>
+    </div>
+
+    {% endfor %}
+
+    <button type="" class="btn btn-outline-primary">Continue</button>
+
+</form>
 
 
 {% endblock %}
