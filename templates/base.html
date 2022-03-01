@@ -1,18 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css links  -->
-    <link rel="stylesheet" href="../static/style.css">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+    <title>Surveys</title>
+
 </head>
 
 <body>
 
-    <h1>{% block title %} {% endblock %}</h1>
-    <main id="content">
-        <section>
-            {% block content %} {% endblock %}
+    <div class="container">
+        <div class="row">
+            <div class="d-grid gap-2 col-9 mx-auto">
 
-        </section>
-    </main>
+                <h1 class="display-3 text-center m-3">{% block title %} {% endblock %}</h1>
+                <main id="content">
+                    <section>
+                        {% block content %} {% endblock %}
+
+                    </section>
+                </main>
+
+            </div>
+        </div>
+    
+    </div>
 
 
 
@@ -24,3 +39,4 @@
         integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
         crossorigin="anonymous"></script>
     </body>
+    </html>

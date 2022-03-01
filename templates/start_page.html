@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
-{% block title %}{{title}}{% endblock %}
+{% block title %}{{survey.title}}{% endblock %}
 
 {% block content %}
 
-<h2 class="display-4">Instructions</h2>
-<p>{{instructions}}</p>
-
+<p class="lead text-center">{{survey.instructions}}</p>
 <form action="/start" method="POST">
     
-    <button>Start Survey!</button>
+    <div class="d-grid gap-2 col-3 mx-auto">
+        <button class="btn btn-lg btn-primary mt-4 p-2">Start Survey!</button>
+    </div>
 </form>
 
 
