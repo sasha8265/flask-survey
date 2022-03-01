@@ -31,6 +31,9 @@ def show_questions(qid):
     """Shows the next question and choices in sequence"""
     responses = session.get(RESPONSES)
 
+    if (len(responses) == len(survey.questions)):
+        return redirect('/complete')
+
     question = survey.questions[qid]
     return render_template('questions.html', qid=qid, question=question)
 
@@ -45,10 +48,13 @@ def handle_response():
     # add response to the session
     responses=session[RESPONSES]
     responses.append(choice)
-    print(responses)
     session[RESPONSES] = responses
 
     # redirect user to next question using the length of responses and returning the next question of the same key
     return redirect(f"/questions/{len(responses)}")
 
 
+@app.route('/complete')
+def complete():
+    """User completed all questions - show thank you page"""
+    return render_template('complete.html')
