@@ -30,9 +30,18 @@ def start_survey():
 def show_questions(qid):
     """Shows the next question and choices in sequence"""
     responses = session.get(RESPONSES)
+    
+    if (responses == None):
+        """redirect user accessing question page too soon"""
+        return redirect('/')
 
     if (len(responses) == len(survey.questions)):
         return redirect('/complete')
+
+    if (len(responses) != qid):
+        flash("Please answer all questions in order")
+        return redirect(f"/questions/{len(responses)}")
+
 
     question = survey.questions[qid]
     return render_template('questions.html', qid=qid, question=question)
