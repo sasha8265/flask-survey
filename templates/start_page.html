@@ -5,12 +5,19 @@
 {% block content %}
 
 <p class="lead text-center">{{survey.instructions}}</p>
-<form action="/start" method="POST">
-    
-    <div class="d-grid gap-2 col-3 mx-auto">
-        <button class="btn btn-lg btn-primary mt-4 p-2">Start Survey!</button>
-    </div>
-</form>
+<div class="container mt-5"> 
+    <form action="/start" method="POST">
+
+        <div class="form-floating mb-3 mx-auto col-5">
+            <input type="text" class="form-control" id="name_input" placeholder="your_name" name="name_input">
+            <label for="name_input">What's your name?</label>
+        </div>
+        
+        <div class="d-grid gap-2 col-5 mx-auto">
+            <button class="btn btn-lg btn-primary mt-2 p-2">Start Survey!</button>
+        </div>
+    </form>
+</div>
 
 
 {% endblock %}
