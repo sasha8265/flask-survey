@@ -9,10 +9,8 @@ app.config['SECRET_KEY'] = "secret"
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 debug = DebugToolbarExtension(app)
 
-# *********************************************
-# Ask why we define responses this way?
 RESPONSES = "responses"
-# *********************************************
+
 
 @app.route('/')
 def home_page():
@@ -22,9 +20,9 @@ def home_page():
 @app.route('/start', methods=["POST"])
 def start_survey():
     """Starts a session when user starts survey and redirects to first question page"""
+
     session[RESPONSES] = []
-    username = request.args["name"]
-    return redirect("/questions/0", name=username)
+    return redirect("/questions/0")
 
 
 @app.route('/questions/<int:qid>')
